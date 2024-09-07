@@ -1,14 +1,1 @@
-<html>
-  <head>
-    <style>
-      div {
-        font-size: 20px;
-        color: red;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div>hello world</div>
-  </body>
-</html>
+<div style="width: 100%;text-align: center;">hello world</div>
