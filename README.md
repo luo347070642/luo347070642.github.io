@@ -1,10 +1,13 @@
 <html>
-  <style>
-    div {
-      font-size: 20px;
-      color: blue;
-    }
-  </style>
+  <head>
+    <style>
+      div {
+        font-size: 20px;
+        color: red;
+        text-align: center;
+      }
+    </style>
+  </head>
   <body>
     <div>hello world</div>
   </body>
