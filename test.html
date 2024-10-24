@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入 Video.js -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+
+    <!-- 引入 flv.js -->
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@1.5.0/dist/flv.min.js"></script>
+
+    <!-- 引入 videojs-flvjs 插件 -->
+    <script src="https://cdn.jsdelivr.net/npm/videojs-flvjs@0.2.0/dist/videojs-flvjs.min.js"></script>
+
+    <style>
+      .video-js {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="videoElement" class="video-js vjs-default-skin" controls preload="auto">
+      <source src="http://178158.play.suibolive.com/live/8133700_1729737958.flv" type="video/x-flv" />
+      <!-- 添加兼容格式，如 MP4 或 HLS -->
+      <!-- <source src="your-video.mp4" type="video/mp4" /> -->
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+
+    <script>
+      // 初始化 Video.js
+      var player = videojs('videoElement', {
+        techOrder: ['html5', 'flvjs'], // 指定播放优先顺序
+        autoplay: false,
+        controls: true,
+        fluid: true // 响应式设计
+      })
+
+      // 检查当前环境是否支持 FLV 播放
+      if (flvjs.isSupported()) {
+        player.ready(function () {
+          player.src({
+            src: 'http://178158.play.suibolive.com/live/8133700_1729737958.flv',
+            type: 'video/x-flv'
+          })
+        })
+      } else {
+        console.warn('FLV format is not supported in this browser. Please provide a fallback source.')
+      }
+    </script>
+  </body>
+</html>
